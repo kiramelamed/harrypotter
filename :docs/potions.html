@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>The Harry Potter Experience by Kira</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">	
+	<link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+	<style type="text/css">
+		*{
+			box-sizing: border-box;
+		}
+
+		body {
+			font-size: 15px;
+			background-color: black;
+			color: black;
+		}
+
+		h3 {
+			font-family: 'Satisfy', cursive;
+			font-size: 40px;
+			padding: 0;
+			margin: 0;
+		}
+
+		#directions, .directionsText {
+			background-repeat: no-repeat;
+			background-attachment: relative;
+			/*background-position: center;*/
+		}
+
+		#directions {
+			display: block;
+			width: 1150px;
+			height: 100vh;
+			margin: 0 auto;
+			background-image: url('images/placeholder_tower.jpg');
+			
+		}
+
+		.directionsText {
+			display: block;
+			width: 550px;
+			height: 410px;
+			padding: 50px 100px;
+			text-align: center;
+			background-image: url('images/scroll.png');
+		}
+
+		.directionsText button {
+			margin-top: 20px;
+		}
+
+		.scroll {
+			display: block;
+			float: left;
+			width: 40%;
+			margin: 400px 0 0 140px;
+		}
+
+		#snape {
+			display: block;
+			width: 300px;
+			margin: 70px 0 0 60px;
+		}
+
+
+		#bubble {
+		    width:150px;
+		    float: left;
+		    display:none;
+		    position:relative;
+		    top: 100px;
+		    left: 100px;
+		   
+		}
+
+		.left {
+			display: block;
+			float: left;
+			width: 40%;
+			margin: 0;
+		}
+
+		.right{
+			float: right;
+			display: block;
+		}
+
+		#snapeContainer {
+			float: right;
+			display: block;
+			margin-right: 100px;
+		}
+
+		#game {
+			display: none;
+			height: 100vh;
+			width: 1150px;
+			background: url(images/placeholder_tower.jpg) no-repeat;
+			margin: 0 auto;
+		}
+
+		/* Memory Game Style */
+		div#memory_board{
+			background: gray;
+			border:#999 2px solid;
+			width:600px;
+			height:600px;
+			padding:24px;
+			margin:0px auto;
+		}
+		div#memory_board > div{
+			background: url(images/memorygame/back.png) no-repeat;
+			border:#000 2px solid;
+			border-radius: 7px;
+			width:100px;
+			height:150px;
+			float:left;
+			margin:18px;
+			/*padding:20px;
+			font-size:64px;*/
+			cursor:pointer;
+			/*text-align:center;*/
+		}
+
+		#memory_board img {
+			border-radius: 7px;
+		}
+
+		.snapeClapping {
+			width: 500px;
+			display: block;
+			margin: 0 auto;
+		}
+
+		button#nextLessonButton {
+			display: block;
+			margin: 10px auto;
+		}
+
+	</style>
+</head>
+<body>
+	<div id='directions'>
+	
+		<div id="main-content">
+			<div class='left'>
+				<div class='scroll'>
+					<div class='directionsText'>
+						<h3>Potions Class</h3>
+						<p>"You are here to learn the subtle science and exact art of potionmaking, I don't expect you will really understand the beauty of the softly simmering cauldron with its shimmering fumes, the delicate power of liquids that creep through human veins, bewitching the mind, ensnaring the senses ... I can teach you how to bottle fame, brew glory, even stopper death -- if you aren't as big a bunch of dunderheads as I usually have to teach." </p>
+						<button>But do try</button>
+					</div>
+				</div>
+			</div>
+			<div class='right'>
+				<div id='bubble'>
+					<img src="images/bubble2.png">
+				</div>
+				<div id='snapeContainer'>
+					<img id='snape' src="images/snape2.png">
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div id='game'>
+		<div id="memory_board"></div>
+	</div> 
+
+	<!-- <ul> <li class="selected"><a href="#home">home</a></li> <li><a href="#about">about me</a></li> <li><a href="#contact">contact</a></li> <ul> -->
+
+	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			//Switching content
+			$('button').click(function(){
+			    var dest = $('#game').attr('display','block');
+			    $('#directions').fadeOut(); // Hide all content divs
+			    $(dest).fadeIn(); // Show the requested part
+			    // You can do all of this using addClass / removeClass and use CSS transition (smoother, cleaner);
+			return false;  
+		    });
+
+		   $("#snapeContainer").mouseover(function(){
+        		$("#bubble").css("display", 'block');
+   			});
+		   $("#snapeContainer").mouseout(function(){
+		        $("#bubble").css("display", 'none');
+		    });
+		});
+
+
+	</script>
+
+	<!-- Memory Game -->
+
+	<script>
+		// Scripted By Adam Khoury in connection with the following video tutorial:
+		// http://www.youtube.com/watch?v=c_ohDPWmsM0
+		
+			var memory_array = ['A','A','B','B','C','C','D','D','E','E','F','F'];
+			var memory_values = [];
+			var memory_tile_ids = [];
+			var tiles_flipped = 0;
+			Array.prototype.memory_tile_shuffle = function(){
+			    var i = this.length, j, temp;
+			    while(--i > 0){
+			        j = Math.floor(Math.random() * (i+1));
+			        temp = this[j];
+			        this[j] = this[i];
+			        this[i] = temp;
+			    }
+			}
+			function newBoard(){
+				tiles_flipped = 0;
+				var output = '';
+			    memory_array.memory_tile_shuffle();
+				for(var i = 0; i < memory_array.length; i++){
+					output += '<div id="tile_'+i+'" onclick="memoryFlipTile(this,\''+memory_array[i]+'\')"></div>';
+				}
+				document.getElementById('memory_board').innerHTML = output;
+			}
+			function memoryFlipTile(tile,val){
+				if(tile.innerHTML == "" && memory_values.length < 2){
+					tile.style.background = '#FFF';
+					tile.innerHTML = '<img src="images/memorygame/' + val + '.png"/>';
+					if(memory_values.length == 0){
+						memory_values.push(val);
+						memory_tile_ids.push(tile.id);
+					} else if(memory_values.length == 1){
+						memory_values.push(val);
+						memory_tile_ids.push(tile.id);
+						if(memory_values[0] == memory_values[1]){
+							tiles_flipped += 2;
+							// Clear both arrays
+							memory_values = [];
+			            	memory_tile_ids = [];
+							// Check to see if the whole board is cleared
+							if(tiles_flipped == memory_array.length){
+								document.getElementById('memory_board').innerHTML = '<img class="snapeClapping" src="images/memorygame/snape.gif"/> <button onclick="nextClass()" id="nextLessonButton">Next Lesson</button>';
+								// $('#nextLessonButton').show();
+							
+
+
+							}
+						} else {
+							function flip2Back(){
+							    // Flip the 2 tiles back over
+							    var tile_1 = document.getElementById(memory_tile_ids[0]);
+							    var tile_2 = document.getElementById(memory_tile_ids[1]);
+							    tile_1.style.background = 'url(images/memorygame/back.png)';
+			            	    tile_1.innerHTML = "";
+							    tile_2.style.background = 'url(images/memorygame/back.png) no-repeat';
+			            	    tile_2.innerHTML = "";
+							    // Clear both arrays
+							    memory_values = [];
+			            	    memory_tile_ids = [];
+							}
+							setTimeout(flip2Back, 700);
+						}
+					}
+				}
+			}
+
+			
+
+				function nextClass(){
+									window.location.href = 'divination.html';
+								}
+
+			newBoard();
+	
+	</script>
+
+</body>
+</html>
