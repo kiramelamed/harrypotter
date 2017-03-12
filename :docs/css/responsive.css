@@ -1,0 +1,119 @@
+@media screen and (min-width: 480px) {
+  
+  
+  /***************************
+  PAGE: HOME
+  ****************************/
+
+.portfolio, .about, .store {
+    display: none;
+}
+    
+.portfolio1, .about1, .store1 {
+    display: inline-block;
+}
+    
+ #hdrnomargin {
+  float: left;
+  margin: 0;
+  padding: 5px 0 0 0;
+  width: 100%;
+}
+ 
+  #indexwrapper {
+      max-width: 1024px;
+      margin: 0 auto;
+      padding: 0;
+      display: block;
+  }
+    
+  .thirty {
+      width: 30%;
+      float: left;
+      margin:  0 5px;      
+  }
+    
+  .thirty img {
+      width: 300px;
+  }
+    
+  nav a {
+      color: #2D2D2A;
+  }
+  
+  nav a.selected, a:hover {
+      color: #EFF1ED;
+  }
+    
+/***************************
+  PAGE: PORTFOLIO
+  ****************************/
+  
+  #gallery li {
+    width: 28.3333%;
+  }
+  
+  #gallery li:nth-child(4n) {
+    clear: left;
+  }
+  
+    
+  /***************************
+  PAGE: ABOUT
+  ****************************/
+  
+  
+  
+  .profile-photo {
+    float: left;
+    margin: 0 5% 80px 0;
+  }
+}
+  
+
+@media screen and (min-width: 660px) {
+  /***************************
+  HEADING
+  ****************************/
+ 
+  nav {
+    background: none;
+    float: right;
+    font-size: 1.125em;
+    margin-right: 5%;
+    text-align: right;
+    width: 45%;
+  }
+  
+  #logo {
+    float: left;
+    margin-left: 5%;
+    text-align: left;
+    width: 45%;
+  }
+  
+  h1 {
+    font-size: 2.5em;
+  }
+  
+  h2 {
+    font-size: 0.825em;
+    margin-bottom: 20px;
+  }
+  header {
+    
+   border-bottom: 5px solid #2D2D2A;
+/*   margin-bottom: 60px;*/
+  }
+    
+/*
+  nav a, nav a:visited {
+      color: #2D2D2A;
+  }
+*/
+  
+  nav a.selected, nav a:hover {
+      color: #EFF1ED;
+  }
+  
+}

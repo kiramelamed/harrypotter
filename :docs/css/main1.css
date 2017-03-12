@@ -1,0 +1,274 @@
+@charset "utf-8";
+
+
+/***************************
+GENERAL
+****************************/
+
+
+* {
+    border-sizing: border-box;
+	padding: 0;
+	margin: auto;
+}
+
+/**** Grid ****/
+.row {
+}
+.row:after, .row:before {
+    position: relative;
+    content: "";
+    width: 100%;
+    display: block;
+    clear: both;    
+}
+
+
+.quarter, .half, .three-quarter, .third, .thirty, .fifteen, .twenty, .fourty, .seventy, .eighty {
+    float: left;
+    display: inline-block;
+}
+
+.quarter {
+    width: 25%;
+}
+
+.half {
+    width: 50%;
+}
+
+.three-quarter {
+    width: 75%;
+}
+
+.third {
+    width: 33.3%;
+}
+
+.thirty {
+    width: 30%
+}
+
+.fifteen {
+    width: 15%;
+}
+
+.twenty {
+    width: 20%;
+}
+
+.fourty {
+    width: 40%;
+}
+
+.seventy {
+    width: 70%;
+}
+
+.eighty {
+    width: 80%
+}
+
+/**** Selectors ****/
+
+body {
+	font-family: Lato;    
+}
+
+#wrapper {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+ul {
+	list-style-type: none;
+    margin: 0;
+}
+    
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+
+/***************************
+CART
+****************************/
+
+/**** Styling ****/
+
+img {
+    margin: 2% 0 0 0;
+    max-width: 100%;
+}
+
+.seventy ul {
+    margin-left: 5%;
+}
+
+.item {
+    border-bottom: 1px solid #989797;
+    padding: 3% 1% 3% 0;
+    margin: 0 2% 0 0; 
+    max-height: 100%;
+}
+
+.actions {
+    border-left: 1px solid #989797;
+    padding-left: 1%;
+}
+
+.cost {
+    margin-left: 10%;
+    font-weight: 700;
+}
+
+.ttl { 
+    text-align: right;
+    font-weight: 700;
+}
+
+.details {
+    padding-top: 5%;
+}
+
+.summary {
+    margin-top: 2%;
+}
+    
+/**** Text ****/
+.shop {
+	font-size: 1.5em;
+	border-bottom: 2px solid #ff0000; 
+	padding-bottom: 1.5%;	
+}
+
+.order {
+	font-family: Lato;
+	font-size: 1.2em;
+	font-weight: 700;
+	text-align: center;	
+}
+
+.title {
+	font-family: Lato;
+	font-size: 1em;
+	font-weight: 700;
+	padding: 0 2% 2% 0;
+}
+
+.subtitle {
+	font-family: Lato;
+	font-size: .75em;
+	font-weight: 400;	
+}
+
+.itemnumber {
+    font-size: .75em;
+}
+
+.price {
+    font-size: 1em;
+	padding-top: 4%;
+}
+
+input {
+	width: 10%;
+	position: relative;
+	text-align: right;
+	padding: 1% 2%;
+	margin-left: 15%;
+}
+
+.quantity {
+	font-size: 100%;
+	padding-bottom: 4%;
+}
+
+/**** Buttons ****/
+
+.delbtn {
+	margin-top: 20%;
+	font-size: .75em;
+}
+
+.savebtn {
+    margin-top: 5%;
+	font-size: .75em;
+}
+
+.clearbtn{
+    display: block;
+	font-size: .75em;
+    text-align:  right;
+    padding: 2% 2% 1%;
+}
+
+#checkoutbtn {
+    margin: 10% 0 0 0;
+}
+
+#checkoutbtn a {
+	font-weight: 700;
+	font-family: Lato;
+	font-size: 1.2em;
+	text-align: center; 
+    margin-top: 10%;
+	padding: .5em 0;
+}
+
+#ctnshop {
+	text-align: center;
+    padding-top: 10%;
+    margin: auto;
+}
+
+
+/***************************
+COLORS
+****************************/
+
+a {
+    color: #113aae;
+}
+
+a:hover {
+    color: #fa0303;
+}
+
+.title {
+    color: #113aae;
+}
+
+.subtitle {
+	color: #7e7979;
+}
+
+.price {
+    color: #fa0303;
+}
+
+.cost {
+	text-align: left;
+	padding: 1em 0;
+}
+
+.total {
+    text-align: center;}
+
+#checkoutbtn  a {
+    color: #ffffff;
+    background-color: #0c72a2;
+	width: 100%;
+	display: inline-block;
+} 
+    
+#checkoutbtn a:hover {
+	background-color: #fa0303;
+}
+
+    
