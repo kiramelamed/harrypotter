@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>The Harry Potter Experience by Kira</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
+	<style type="text/css">
+
+		body {
+			font-size: 20px;
+			background-color: black;
+			color: white;
+
+		}
+
+		.section1, .section2 {
+			display: block;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-position: center;
+			margin: 0 auto;
+
+		}
+
+		.section1 {
+			width: 1150px;
+			height: 1070px;
+		}
+
+		.section2 {
+			width: 1150px;
+			height: 960px;
+		}
+
+		#menu {
+			background-image: url('images/homepage-1.jpg');
+		}
+
+		#potions {
+			background-image: url('images/homepage-2.jpg');
+		}
+
+		.banner {
+			display: block;
+			width: 600px;
+			margin: 0px auto;
+			padding-top: 185px;
+		}
+
+		/* Word Bubble */
+
+		.wordBubble {
+			width: 150px;
+			float: right;
+			margin:300px 100px 0 0;
+		}
+
+		.img-zoom {
+		    width: 150px;
+		    height: 150px !important;
+		    -webkit-transition: all .2s ease-in-out;
+		    -moz-transition: all .2s ease-in-out;
+		    -o-transition: all .2s ease-in-out;
+		    -ms-transition: all .2s ease-in-out;
+		}
+		 
+		.transition {
+		    -webkit-transform: scale(1.5); 
+		    -moz-transform: scale(1.5);
+		    -o-transform: scale(1.5);
+		    transform: scale(1.5);
+		}
+
+		#snape {
+			display: block;
+			width: 150px;
+			float: right;
+			margin: 425px 150px 0 0;
+		}
+
+	</style>
+</head>
+<body>
+
+	<!-- Page 1 - Menu
+	Illustration of Hogwarts
+	Navigation -->
+
+	<div class='section1' id='menu' data-stellar-background-ratio=".5">
+		<div>
+			<img class='banner' id='popin' src="images/banner.png">
+		</div>
+	</div>
+
+	<!-- Page 2 - Potions Class
+	Illustration of McGonagall with directions for the game -->
+	<div class='section2' id='potions' data-stellar-background-ratio=".5">
+		<div class='block'>
+			<img class='slide-right' id='snape' src="images/snape2.png">
+		</div>
+		<div class='block'></div>
+			<div class='wordBubble' id='movein'>
+					<a href='potions.html'><img class="img-zoom" src="images/bubble.png"></a>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- JavaScript -->	
+
+	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+
+	<!-- Script to Make elements disappear -->
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+	<script src='javascript/jquery.fadethis.min.js'></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.0/jquery.scrollTo.min.js"></script>
+	<script src="javascript/jquery.stellar.min.js"></script>
+	<script src='javascript/jquery.risingSun.js'></script>
+	
+
+	<script>
+		$(document).ready(function() {
+			//Script to Make elements disappear
+			$("#popin").RisingSun({
+			     duration:1000,scale:0.1,popanime:true,ease:"easeOutCubic",replay:true
+			});
+			
+			$("#movein").RisingSun({duration:800,x:50,ease:"easeOutCubic"});
+
+
+		    $('.img-zoom').hover(function() {
+		        $(this).addClass('transition');
+		 
+		    }, function() {
+		        $(this).removeClass('transition');
+		    });
+ 
+
+			$('.block').fadeThis();
+			//The Parallax Scrolling
+			$(window).stellar({
+			
+			    horizontalScrolling: false,
+			    responsive: true,
+			    verticalOffset: 150
+
+			});
+		});
+	</script>
+</body>
+</html>

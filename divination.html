@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>The Harry Potter Experience by Kira</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">	
+	<link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="styles/animate.css">
+	<style type="text/css">
+		.ron {
+			
+		}
+
+		*{
+			box-sizing: border-box;
+		}
+
+
+		body {
+			font-size: 15px;
+			background-color: black;
+			color: black;
+		}
+
+		/*Main screen*/
+
+		h3 {
+			font-family: 'Satisfy', cursive;
+			font-size: 40px;
+			padding: 0;
+			margin: 0;
+		}
+
+		#directions, .directionsText {
+			background-repeat: no-repeat;
+			background-attachment: relative;
+			/*background-position: center;*/
+		}
+
+		#directions {
+			display: block;
+			width: 1150px;
+			height: 100vh;
+			margin: 0 auto;
+			background-image: url('images/placeholder_corridor.jpg');
+			
+		}
+
+		.directionsText {
+			display: block;
+			width: 550px;
+			height: 410px;
+			padding: 50px 100px;
+			text-align: center;
+			background-image: url('images/scroll.png');
+		}
+
+		.directionsText button {
+			margin-top: 20px;
+		}
+
+		.scroll {
+			display: block;
+			float: left;
+			width: 40%;
+			margin: 300px 0 0 140px;
+			
+		}
+
+		.left {
+			display: block;
+			float: left;
+			width: 40%;
+			margin: 0;
+		
+		}
+
+		.right{
+			float: right;
+			display: block;
+			position: absolute;
+			left:548px;
+
+		}
+
+		img#trelawney {
+			display: block;
+			width: 870px;
+			z-index: -4;
+
+		}
+
+		#trelawneyContainer {
+			float: left;
+			display: block;
+			position: absolute;
+			top: 150px;
+			/*margin-right: 100px;*/
+			 
+		}
+
+		input[type='text'] {
+			display: block;
+			width: 300px;
+			height: 80px;
+			margin: 0 auto;
+		}
+
+
+		/*Modals*/
+		.leftmodal {
+			display: block;
+			width: 40%;
+			float: left;
+			font-size: 20px;
+			font-family: Arial;
+			line-height: 30px;
+		}
+
+		.rightmodal {
+			display: block;
+			width: 40%;
+			float: right;
+		}
+
+		.trelawney {
+			width: 160px;
+			margin:0 auto;
+		}
+
+		.modal-wrapper {
+			background-color: rgba(0, 0, 0, .7);
+			width: 100%;
+			height: 100vh;
+			position: fixed;
+			top: 0;
+			left: 0;
+			display: none;
+		}
+
+		.modal {
+			border: 1px solid black;
+			background-color: white;
+			width: 500px;
+			height: 300px;
+			padding: 20px;
+			margin: 0 auto;
+			position: relative;
+			top: 50%;
+			margin-top: -200px;
+			border-radius: 10px;
+		}
+
+		.modal-on {
+			overflow: hidden;
+		}
+
+	</style>
+</head>
+<body>
+	
+	<div id="directions">
+		<div id='main-content'>
+			<div id='trelawneyContainer'>
+				<img id='trelawney' src="images/trelawney.png">
+			</div>
+			<div class='right'>
+				<div class='scroll'>
+					<div class='directionsText'>
+						<h3>Divination Class</h3>
+						<p>"Welcome. How nice to see you in the physical world at last. Drink the tea I will pour for you until only dregs remain. Swill these around the cup three times with the left hand, then turn the cup upside down on its saucer, wait for the last of the tea to drain away, then..." </p>
+						<input type='text' value='Write your prediction here'>
+						<button class="activateModal">Tell me what you see!</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		
+		<!-- <div id='trelawneyContainer'>
+			<img id='trelawney' src="images/trelawney.png">
+		</div> -->
+	</div>
+
+	
+
+	<div class='modal-wrapper' id='modal1'>
+		<div class='modal'>
+			<div class='leftmodal'>
+				<img class='trelawney' src='images/trelawney2.png'>
+			</div>
+
+			<div class='rightmodal'>
+				<p>My dear boy... My poor, dear boy... no...it is kinder not to say...no...don't ask me....</p>
+				<button class='ok'>OK</a>
+			</div>
+		</div>
+	</div>
+
+	<div class='modal-wrapper' id='modal2'>
+		<div class='modal'>
+			<div class='rightmodal'>
+				<img class='trelawney' src='images/trelawney2.png'>
+			</div>
+
+			<div class='leftmodal'>
+				<p>My dear, you have the Grim!</p>
+				<button class='ok2'>OK</a>
+			</div>		
+		</div>
+	</div>
+
+	<div class='modal-wrapper' id='modal3'>
+		<div class='modal'>
+			<div class='rightmodal'>
+				<img class='trelawney' src='images/trelawney2.png'>
+			</div>
+
+			<div class='leftmodal'>
+				<p>The Grim, my dear, the Grim!</p>
+				<button class='ok3'>OK</a>
+			</div>
+		</div>
+	</div>
+
+	<div class='modal-wrapper' id='modal4'>
+		<div class='modal'>
+			<div class='rightmodal'>
+				<img class='trelawney' src='images/trelawney2.png'>
+			</div>
+
+			<div class='leftmodal'>
+				<p>The giant, spectral dog that haunts churchyards! My dear boy, it is an omen - the worst omen - of <em>death</em>!</p>
+				<button class='ok4'>OK</a>
+			</div>
+		</div>
+	</div>
+
+	<div class='modal-wrapper' id='modal5'>
+		<div class='modal'>
+			<div class='rightmodal'>
+				<img class='trelawney' src='images/ron.png'>
+			</div>
+
+			<div class='leftmodal'>
+				<p>I don't know about you, but all this talk about Grims made me hungry. Let's go to the Great Hall!</p>
+				<button class='toTheNextClass'>OK</a>
+			</div>
+		</div>
+	</div>
+
+	
+
+	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+
+	<script type="text/javascript">
+
+		$('.activateModal').click(function(){
+			$('#modal1').show();
+
+			$('body').addClass('modal-on');
+		});
+
+		$('.modal').click(function(event){
+			event.stopPropagation();
+		});
+
+		$('.exit, .no, .modal-wrapper').click(function(event){
+			//Don't act as a link
+			event.preventDefault();
+			$('.modal-wrapper').hide();
+		});
+
+		$('.ok').click(function(event){
+			
+
+			$('#modal1').hide();
+			$('#modal2').show();
+		});
+
+		$('.ok2').click(function(event){
+			
+
+			$('#modal2').hide();
+			$('#modal3').show();
+		});
+
+		$('.ok3').click(function(event){
+			
+			$('#modal3').hide();
+			$('#modal4').show();
+		});
+
+		$('.ok4').click(function(event){
+	
+			$('#modal4').hide();
+			$('#modal5').show();
+		});
+
+		$('.toTheNextClass').click(function(){
+
+			$('#modal5').hide();
+			window.location.href = 'greathall.html';
+		});
+
+		// function alertHarry(){
+		// 	alert("Professor Trelawney: 'My dear boy... My poor, dear boy... no...it is kinder not to say...no...don't ask me....'");
+		// 	alert("Professor Trelawney: 'My dear, you have the Grim!'");
+		// 	alert("Professor Trelawney: 'The Grim, my dear, the Grim!'");
+		// 	alert("Professor Trelawney: 'The giant, spectral dog that haunts churchyards! My dear boy, it is an omen - the worst omen - of death!'");
+		
+		//     if (confirm("Ron: 'I don't know about you, but all this talk about Grims made me hungry. Let's go to the Great Hall!'") == true) {
+
+		//     	window.location.href = 'greathall.html';
+
+		//     }else {
+		// 	    console.log("You pressed Cancel!");
+		// 	} 
+		// }
+		
+	</script>
+
+</body>
+</html>
